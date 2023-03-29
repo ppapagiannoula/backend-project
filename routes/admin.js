@@ -9,7 +9,7 @@ const productsController = require('../controllers/products');
 
 router.get('/add-product', productsController.getAddProduct);
 
-router.post('/add-product', productsController.getAddProduct)
+router.post('/add-product', productsController.postAddProduct);
 
 // router.post('/add-product',(req,res,next)=>{
 //     //save to database

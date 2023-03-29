@@ -1,22 +1,33 @@
+const path = require('path');
+const express = require('express');
+const rootDir = require('../util/path');
+
+const products =[];
 
 
-
-exports.getAddProduct = (req,res,next) => {
-    res.send('<form action="/admin/add-product" method="POST"><input type="text" name="title"><button type="submit">add product</button></form>');
-
+exports.getAddProduct = (req, res, next) => {
+    // res.sendFile(path.join(rootDir, 'views', 'add-product.html'));
+    res.render('add-product', {
+        pageTitle: 'add product',
+        path: '/admin/add-product'
+    });
 }
 
-exports.postAddProduct =(req,res,next) => {
+exports.postAddProduct = (req, res, next) => {
     //save to database
-    //sotre product to database
+    //store product to database
+
+    products.push({title: req.body.title});
     res.redirect('/');
 }
 
-exports.getAllProducts = (req,res,next)=>{
-    res.send(<h1>welcome to our eshop</h1>)
+exports.getAllProducts = (req, res, next) => {
     //fetch all products from database
+    //1)Root project folder, 2)Frontend folder, 3)html file
+    // res.sendFile(path.join(rootDir, 'views', 'shop.html'));
+    res.render('shop', {
+        pageTitle: 'Shop',
+        path: '/',
+        prods: products
+    });
 }
-
-// exports.getProduct = (req,res,next) => {
-//     res.send('<h1>this product</h1>');
-// }
