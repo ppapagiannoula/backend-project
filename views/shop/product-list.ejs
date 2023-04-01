@@ -1,9 +1,9 @@
-<%- include('includes/head.ejs') %>
+<%- include('../includes/head.ejs') %>
     <link rel="stylesheet" href="/css/product.css">
 </head>
 
 <body>
-    <%- include('includes/navigation.ejs') %>
+    <%- include('../includes/navigation.ejs') %>
     <main>
         <% if (prods.length > 0) { %>
             <div class="grid">
@@ -13,15 +13,18 @@
                             <h1 class="product_title"><%= product.title %></h1>
                         </header>
                         <div class="card_image">
-                            <img src="https://c8.alamy.com/comp/2C99JXJ/the-matrix-1999-directed-by-the-wachowski-brothers-and-starring-keanu-reeves-laurence-fishburne-carrie-anne-moss-and-joe-pantoliano-a-computer-hacker-finds-the-rabbit-hole-is-deeper-than-he-possibly-imagined-when-he-elects-to-take-the-red-pill-in-this-groundbreaking-and-innovative-science-fiction-classic-2C99JXJ.jpg"
+                            <img src="<%= product.imageUrl %>"
                                 alt="Movie">
                         </div>
                         <div class="card_content">
-                            <h2 class="product_price">€19.99</h2>
-                            <p class="product_description">The best movie ever!</p>
+                            <h2 class="product_price"><%= product.price %></h2>
+                            <p class="product_description"><%= product.description %></p>
                         </div>
                         <div class="card_actions">
-                            <button class="btn">Add to Cart</button>
+                            <a href="/products/<%= product.id %>" class="btn">Details</a>
+                            <form action="/add-to-cart" method="POST">
+                                <button class="btn">Add to Cart</button>
+                            </form>
                         </div>
                     </article>
                 <% } %>
@@ -30,4 +33,4 @@
             <h1>No Products Found!</h1>
         <% } %>
     </main>
-<%- include('includes/end.ejs') %>
+<%- include('../includes/end.ejs') %>

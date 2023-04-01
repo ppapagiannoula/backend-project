@@ -24,10 +24,11 @@ exports.postAddProduct = (req, res, next) => {
 
 // Root page '/'
 exports.getAllProducts = (req, res, next) => {
-  //res.sendFile(path.join(rootDir, 'views', 'shop.html')); DONT USE! We cant pass node.js code inside the the html files.
-  res.render('shop', {
-    prods: products,
-    pageTitle: 'Shop',
-    path: '/',
-  });
+  Product.fetchAll(products => {
+    res.render('admin/products', {
+      prods: products,
+      pageTitle: 'Admin Products',
+      path: '/admin/products',
+    });
+  })
 };

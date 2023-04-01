@@ -8,4 +8,6 @@ router.get('/add-product', adminController.getAddProduct); //when the user visit
 // /admin/add-product => POST
 router.post('/add-product', adminController.postAddProduct); //when the user press the submit button in the form of the http://localhost:3000/admin/add-product
 
+
+router.get('/products', adminController.getAllProducts);
 module.exports = router;
