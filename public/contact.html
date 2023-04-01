@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" type="image/x-icon" href="favicon-16x16.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+    </link>
+    <!-- form script -->
+    <script src="./js/form.js" defer></script>
+</head>
+
+<body>
+    <!---------- NAVIGATION BAR ---------->
+    <header class="header">
+        <ul class="navbar">
+            <div class="logo">
+                <a href="index.html"><img src="./img/logo.png" alt="logo" width="150"></a>
+            </div>
+            <div class="nav-container">
+                <li>
+                    <h2><a href="index.html">Home</a></h2>
+                </li>
+                <li>
+                    <h2><a href="about.html">About</a></h2>
+                </li>
+                <li>
+                    <h2><a href="news.html">Updates</a></h2>
+                </li>
+                <li>
+                    <h2><a href="merch.html">Merch</a></h2>
+                </li>
+                <li>
+                    <h2><a class="current" href="contact.html">Contact</a></h2>
+                </li>
+            </div>
+        </ul>
+    </header>
+    <div id="contact">
+        <!-- left img -->
+        <div class="contact-rin">
+            <img src="./svg/rin.svg" alt="rin" width="350">
+        </div>
+        <div class="contact-box box">
+            <h1>Chat with us</h1>
+            <div id="error_message"></div>
+            <form id="contact-form" name="contact-form" onsubmit="return validate()">
+                <div class="user-box">
+                    <input type="text" name="name" id="name">
+                    <label for="name">name</label>
+                </div>
+                <div class="user-box">
+                    <input type="text" name="phone" id="phone">
+                    <label for="phone">phone</label>
+                </div>
+                <div class="user-box">
+                    <input type="text" name="email" id="email">
+                    <label for="email">email</label>
+                </div>
+                <div class="user-box">
+                    <input type="text" name="veremail" id="veremail">
+                    <label for="veremail">verify your email</label>
+                </div>
+                <div class="user-box">
+                    <input type="text" name="adress" id="adress">
+                    <label for="adress">adress</label>
+                </div>
+                <div>
+                    <textarea name="message" id="message" cols="32" rows="7"
+                        placeholder="write us a message"></textarea>
+                </div>
+                <div>
+                    <input type="submit" class="btn" value="submit">
+                </div>
+            </form>
+        </div>
+        <!-- right img -->
+        <div class="contact-len">
+            <img src="./svg/len.svg" alt="len" width="300">
+        </div>
+    </div>
+
+    <!---------- FOOTER ---------->
+    <footer id="footer">
+        <div class="footer-content">
+            <a href="index.html"><img src="./img/logo.png" alt="logo" width="100"></a>
+            <ul class="socials">
+                <li><a href="https://web.facebook.com/" target="_blank"><i class="fa-brands fa-facebook"></i></a></li>
+                <li><a href="https://discord.com/" target="_blank"><i class="fa-brands fa-discord"></i></a></li>
+                <li><a href="https://github.com/" target="_blank"><i class="fa-brands fa-github"></i></a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>&#169; 2022 Paraskevi, Inc. All rights reserved.</p>
+            <div class="footer-menu">
+                <ul class="f-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="news.html">Updates</a></li>
+                    <li><a href="merch.html">Merch</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
