@@ -1,34 +1,33 @@
-<%- include ('includes/head.ejs') %>
-    </head>
+<%- include('includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/product.css">
+</head>
 
-    <body>
-        <%- include ('includes/navigation.ejs') %>
-
-            <main>
-                <% if(prods.length > 0){ %>
-                <div class="grid">
-                    <% for (let product of prods) { %>
+<body>
+    <%- include('includes/navigation.ejs') %>
+    <main>
+        <% if (prods.length > 0) { %>
+            <div class="grid">
+                <% for (let product of prods) { %>
                     <article class="card product-item">
-                        <header class="card-header">
-                            <h1 class="product-title"><%= product.title %></h1>
+                        <header class="card_header">
+                            <h1 class="product_title"><%= product.title %></h1>
                         </header>
-                        <div class="card-image">
-                            <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS4jfQQt_0vCA4XSwGiWkffC32Tv2oajdWhaYHHVYylYGJ3v17Q" alt="">
+                        <div class="card_image">
+                            <img src="https://c8.alamy.com/comp/2C99JXJ/the-matrix-1999-directed-by-the-wachowski-brothers-and-starring-keanu-reeves-laurence-fishburne-carrie-anne-moss-and-joe-pantoliano-a-computer-hacker-finds-the-rabbit-hole-is-deeper-than-he-possibly-imagined-when-he-elects-to-take-the-red-pill-in-this-groundbreaking-and-innovative-science-fiction-classic-2C99JXJ.jpg"
+                                alt="Movie">
                         </div>
-                        <div class="card-content">
-                            <h2 class="card-price">20.00</h2>
-                            <p class="product-description">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                                Nisi,
-                                distinctio!</p>
+                        <div class="card_content">
+                            <h2 class="product_price">€19.99</h2>
+                            <p class="product_description">The best movie ever!</p>
                         </div>
-                        <div class="card-actions">
-                            <button class="btn">add to cart</button>
+                        <div class="card_actions">
+                            <button class="btn">Add to Cart</button>
                         </div>
                     </article>
-                    <% } %>
-                </div>
-                <% } else { %>
-                    <h1>no products found</h1>
-                <% } %>    
-            </main>
-            <%- include ('includes/end.ejs') %>
+                <% } %>
+            </div>
+        <% } else { %>
+            <h1>No Products Found!</h1>
+        <% } %>
+    </main>
+<%- include('includes/end.ejs') %>

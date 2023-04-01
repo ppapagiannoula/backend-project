@@ -1,33 +1,31 @@
-const path = require('path');
-const express = require('express');
-const rootDir = require('../util/path');
-
-const products =[];
+const products = []; //We dont have a database yet but we have an array
 
 
+// =>GET  /admin/add-product 
 exports.getAddProduct = (req, res, next) => {
-    // res.sendFile(path.join(rootDir, 'views', 'add-product.html'));
-    res.render('add-product', {
-        pageTitle: 'add product',
-        path: '/admin/add-product'
-    });
-}
+  //res.sendFile(path.join(rootDir, 'views', 'add-product.html')); DONT USE! We cant pass node.js code inside the the html files.
+  res.render('add-product', {
+    pageTitle: 'Add Product',
+    path: '/admin/add-product',
+  });
+};
 
+
+
+// =>POST  /admin/add-product 
 exports.postAddProduct = (req, res, next) => {
-    //save to database
-    //store product to database
+  //store product to database...
+  products.push({ title: req.body.title }); //We only push a title from the req.body cause our form has only one input field. the title.
+  res.redirect('/');
+};
 
-    products.push({title: req.body.title});
-    res.redirect('/');
-}
 
+// Root page '/'
 exports.getAllProducts = (req, res, next) => {
-    //fetch all products from database
-    //1)Root project folder, 2)Frontend folder, 3)html file
-    // res.sendFile(path.join(rootDir, 'views', 'shop.html'));
-    res.render('shop', {
-        pageTitle: 'Shop',
-        path: '/',
-        prods: products
-    });
-}
+  //res.sendFile(path.join(rootDir, 'views', 'shop.html')); DONT USE! We cant pass node.js code inside the the html files.
+  res.render('shop', {
+    prods: products,
+    pageTitle: 'Shop',
+    path: '/',
+  });
+};
