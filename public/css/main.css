@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+@font-face {
+  font-family: firstfont;
+  src: url(./fonts/ZenDots-Regular.ttf);
+}
 
 * {
   box-sizing: border-box;
@@ -7,7 +10,7 @@
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: firstfont;
 }
 
 main {
@@ -24,7 +27,7 @@ form {
 }
 
 .image {
-  height: 20rem;
+  height: 30rem;
 }
 
 .image img {
@@ -34,8 +37,8 @@ form {
 .main-header {
   width: 100%;
   height: 3.5rem;
-  background-color: #b4da55;
-  padding: 0 1.5rem;
+  background-color: rgb(230, 152, 253);
+  padding: 0 2rem;
   display: flex;
   align-items: center;
 }
@@ -59,6 +62,7 @@ form {
 }
 
 .main-header__item a {
+  font-family: firstfont;
   text-decoration: none;
   color: white;
 }
@@ -66,7 +70,7 @@ form {
 .main-header__item a:hover,
 .main-header__item a:active,
 .main-header__item a.active {
-  color: #ffeb3b;
+  color: rgb(116, 23, 144);
 }
 
 .mobile-nav {
@@ -110,7 +114,7 @@ form {
 .mobile-nav__item a:active,
 .mobile-nav__item a:hover,
 .mobile-nav__item a.active {
-  background: #b4da55;
+  background: rgb(116, 23, 144);
   color: white;
   border-radius: 3px;
 }
@@ -131,8 +135,8 @@ form {
 
 #side-menu-toggle:active,
 #side-menu-toggle:hover {
-  color: #ffeb3b;
-  border-color: #ffeb3b;
+  color: rgb(116, 23, 144);
+  border-color: rgb(116, 23, 144);
 }
 
 .backdrop {
@@ -192,16 +196,16 @@ form {
   padding: 0.25rem 1rem;
   text-decoration: none;
   font: inherit;
-  border: 1px solid #b4da55;
-  color: #b4da55;
-  background: white;
+  border: 1px solid white;
+  color: white;
+  background: rgb(230, 152, 253);
   border-radius: 3px;
   cursor: pointer;
 }
 
 .btn:hover,
 .btn:active {
-  background-color: #b4da55;
+  background-color: rgb(116, 23, 144);
   color: white;
 }
 
