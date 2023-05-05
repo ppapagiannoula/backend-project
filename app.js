@@ -1,27 +1,53 @@
 //app requirements
-const path = require('path');
 const express = require('express');
-const mongoose = require('mongoose');
-
+const path = require('path');
 const app = express();
-//calling 404 controller
-const errorController = require('./controllers/error');
-
+const mongoose = require('mongoose');
 //importing schemas/models
-const User = require('./models/user');
+const User = require("./models/user");
 
-//settign up template engine
+//calling 404 controller
+// const errorController = require('./controllers/error');
+
+const session = require("express-session");
+const MongoDBStore = require("connect-mongodb-session")(session);
+
+const MONGODB_URI =
+  "mongodb+srv://psnod:panos123@cluster0.dgofkdg.mongodb.net/?retryWrites=true&w=majority";
+
+const store = new MongoDBStore({
+  uri: MONGODB_URI,
+  collection: "sessions",
+});
+
+//settign up template engine ejs
 app.set('view engine', 'ejs');
 app.set('views', 'views');
-//routes
-const adminRoutes = require('./routes/admin');
-const shopRoutes = require('./routes/shop');
-const authRoutes = require('./routes/auth');
 
-//setting up the body parser
-app.use(express.urlencoded({ extended: false }));
+//routes
+const adminRoutes = require("./routes/admin");
+const shopRoutes = require("./routes/shop");
+const errorController = require("./controllers/error");
+// const authRoutes = require('./routes/auth');
+
+
 //setting up the default path
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'public')));
+
+//seting up the body parser
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+//Session
+app.use(
+  session({
+    secret: "mySecretKey",
+    resave: false,
+    saveUninitialized: false,
+    store: store,
+    // cookie: { secure: true },
+  })
+);
 
 //default user
 app.use((req, res, next) => {
@@ -33,10 +59,13 @@ app.use((req, res, next) => {
     .catch(err => console.log(err));
 });
 
-app.use('/admin', adminRoutes);
+//Path setUp
+app.use(express.static(path.join(__dirname, "public")));
 //listening to routes
+app.use("/admin", adminRoutes);
 app.use(shopRoutes);
-app.use(authRoutes);
+// app.use(authRoutes);
+
 //calling the 404 controller in case of error 404
 app.use(errorController.get404);
 

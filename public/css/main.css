@@ -1,22 +1,65 @@
-@font-face {
-  font-family: firstfont;
-  src: url(./fonts/ZenDots-Regular.ttf);
-}
-
+/*----------RESET----------*/
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
+/*---------- MAIN STYLING ----------*/
 body {
-  padding: 0;
-  margin: 0;
-  font-family: firstfont;
+  background: #9a9ae1;
+  line-height: 1.6em;
+  overflow-x: hidden;
 }
 
+/* for the background */
+@keyframes gradient {
+  0% {
+      background-position: 0% 50%;
+  }
+
+  50% {
+      background-position: 100% 50%;
+  }
+
+  100% {
+      background-position: 0% 50%;
+  }
+}
+
+/* fonts */
+@font-face {
+  font-family: firstfont;
+  src: url(../fonts/ZenDots-Regular.ttf);
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+h1 {
+  font-family: firstfont;
+  color: aliceblue;
+  text-align: center;
+  text-shadow: 2px 2px 5px rgb(230, 152, 253);
+  font-size: 1.5em;
+  padding-bottom: 10px;
+}
+
+h2,
+h3,
+h4,
+p,
+a {
+  font-family: secondfont;
+  color: aliceblue;
+}
+/* 
 main {
   padding: 1rem;
   margin: auto;
-}
+} */
 
 form {
   display: inline;
@@ -150,12 +193,12 @@ form {
   display: none;
 }
 
-.grid {
+/* .grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: stretch;
-}
+} */
 
 .card {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
@@ -191,7 +234,7 @@ form {
   margin: 0 0.25rem;
 }
 
-.btn {
+/* .btn {
   display: inline-block;
   padding: 0.25rem 1rem;
   text-decoration: none;
@@ -201,12 +244,26 @@ form {
   background: rgb(230, 152, 253);
   border-radius: 3px;
   cursor: pointer;
+} */
+
+.btn {
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  color: #650de8;
+  background: aliceblue;
+  border: 3px solid aliceblue;
+  padding: 13px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: .5s ease;
+  width: fit-content;
 }
 
 .btn:hover,
 .btn:active {
-  background-color: rgb(116, 23, 144);
-  color: white;
+  border: 3px solid #650de8;
 }
 
 .btn.danger {
