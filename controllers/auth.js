@@ -1,4 +1,9 @@
+//sandbox4f1120d5f54a4ad4812d89274a3cda83.mailgun.org domain
+//68df38b9ddbfc4022cbc8e23811aa17b-db4df449-f23867ae api key
+
+
 const User = require("../models/user");
+const mailgun = require("../mailgun-js")({apiKey:'', domain:''});
 
 exports.getLogin = (req, res, next) => {
   res.render("auth/login", {

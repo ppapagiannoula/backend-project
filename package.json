@@ -5,6 +5,7 @@
     "ejs": "^3.1.9",
     "express": "^4.18.2",
     "express-session": "^1.17.3",
+    "mailgun-js": "^0.22.0",
     "mongoos": "^0.0.1-security",
     "mongoose": "^7.1.0",
     "nodemon": "^2.0.21",
